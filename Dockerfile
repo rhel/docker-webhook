@@ -18,5 +18,8 @@ RUN curl -L --silent -o webhook.tar.gz https://github.com/adnanh/webhook/archive
 
 FROM docker:18
 COPY --from=build /usr/local/bin/webhook /usr/local/bin/webhook
+COPY docker-entrypoint.sh /usr/local/bin
+RUN apk add --no-cache su-exec \
+ && rm -fr /var/cache/apk/*
 EXPOSE 9000
-ENTRYPOINT ["/usr/local/bin/webhook"]
+ENTRYPOINT ["docker-entrypoint.sh"]
