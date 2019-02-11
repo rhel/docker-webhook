@@ -1,7 +1,7 @@
 FROM golang:alpine3.8 AS build
 LABEL MAINTAINER="Artyom Nosov <chip@unixstyle.ru>"
 WORKDIR /src
-ARG WEBHOOK_VERSION 2.6.9
+ARG WEBHOOK_VERSION=2.6.9
 RUN apk add --no-cache --virtual .build-deps curl libc-dev gcc libgcc
 RUN curl -L --silent -o webhook.tar.gz https://github.com/adnanh/webhook/archive/${WEBHOOK_VERSION}.tar.gz \
  && tar -xzf webhook.tar.gz --strip 1 \
