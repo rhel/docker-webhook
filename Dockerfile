@@ -1,5 +1,5 @@
 FROM golang:alpine3.8 AS build
-LABEL MAINTAINER=Artyom Nosov <chip@unixstyle.ru>
+LABEL MAINTAINER="Artyom Nosov <chip@unixstyle.ru>"
 WORKDIR /src
 ARG WEBHOOK_VERSION 2.6.9
 RUN apk add --no-cache --virtual .build-deps curl libc-dev gcc libgcc
